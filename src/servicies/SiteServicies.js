@@ -17,13 +17,13 @@ export default {
         'method':'GET',
         'url':'/Cinema/index',
     }),
-    postData: () =>
+    GetCinemaByHours: (starTime, endTime) =>
     instance({
-        'method': 'POST',
-        'url':'/api',
-        'data': {
-            'item1':'data1',
-            'item2':'item2'
+        'method':'GET',
+        'url':'/Cinema/GetCinemaByHours',
+        'params': {
+            'starTime': starTime,
+            'endTime': endTime
         }
     })
 }
