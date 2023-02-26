@@ -58,11 +58,17 @@ const BasicTable = () => {
   }
 
     const _handleTextFieldChangeHoraInicio = event => {
-        sethoraInicio(event.target.value);
+        const regex = /^[0-9\b]+$/;
+        if (regex.test(event.target.value)) {
+            sethoraInicio(event.target.value);
+        }
     }
     
     const _handleTextFieldChangeHoraCierrre = event => {
-        sethoraCierre(event.target.value);
+        const regex = /^[0-9\b]+$/;
+        if (regex.test(event.target.value)) {
+            sethoraCierre(event.target.value);
+        }
     }
 
   useEffect(() => {
@@ -97,7 +103,7 @@ const BasicTable = () => {
             </div>
         </Box>
         <Stack direction="row" spacing={2}>
-        <Button variant="contained" onClick={horaInicio !== '' && horaCierre !== '' ? getCinemasPorHoras : getCinemas}>Buscar</Button>
+        <Button variant="contained" onClick={horaInicio !== '0' && horaCierre !== '0' ? getCinemasPorHoras : getCinemas}>Buscar</Button>
         </Stack>
         <TableContainer component={Paper}>
         <Table sx={{ minWidth: 700 }} aria-label="customized table">
